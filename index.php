@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: Frameless Form
-Plugin URI: http://smrutiranjan.in/Frameless-form/
-Description: This is a custom widget allow to execute custom avail shortcodes form
+Plugin URI: https://github.com/smrutiranjan/frameless-form
+Description: This is a custom widget allow to execute custom search form widget. you can <a href="https://github.com/smrutiranjan/frameless-form/archive/master.zip">download </a>the latest file from <a href="https://github.com/smrutiranjan/frameless-form/archive/master.zip">here</a> for upgrade the plugin.
 Author: Smrutiranjan
 Author URI: http://smrutiranjan.in
 Version: 0.3
