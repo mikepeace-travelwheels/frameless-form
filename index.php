@@ -5,7 +5,7 @@ Plugin URI: https://github.com/smrutiranjan/frameless-form
 Description: This is a custom widget allow to execute custom search form widget. you can <a href="https://github.com/smrutiranjan/frameless-form/archive/master.zip">download </a>the latest file from <a href="https://github.com/smrutiranjan/frameless-form/archive/master.zip">here</a> for upgrade the plugin.
 Author: Smrutiranjan
 Author URI: http://smrutiranjan.in
-Version: 0.3
+Version: 1.1
 Text Domain: Frameless-form
 */
 
@@ -658,6 +658,36 @@ vertical-align:middle;
 	
 	delete_option( 'pageform3_css');
 	add_option( 'pageform3_css',$pagelayout3, '', 'yes' ); 
+	
+	delete_option('pageform1_wg_bg_color');
+	add_option( 'pageform1_wg_bg_color','#026CD6', '', 'yes' ); 
+	
+	delete_option('pageform2_wg_bg_color');
+	add_option( 'pageform2_wg_bg_color','#ea6420', '', 'yes' ); 
+	
+	delete_option('pageform3_wg_bg_color');
+	add_option( 'pageform3_wg_bg_color','#1966a5', '', 'yes' ); 
+	
+	delete_option('pageform1_header_img_en');
+	add_option('pageform1_header_img_en',plugins_url('/upload/headlogo.png', __FILE__ ), '', 'yes' );
+	
+	delete_option('pageform2_header_img_en');
+	add_option('pageform2_header_img_en',plugins_url('/upload/headlogo.png', __FILE__ ), '', 'yes' );
+	
+	delete_option('pageform3_header_img_en');
+	add_option('pageform3_wg_bg_img',plugins_url('/upload/headlogo.png', __FILE__ ), '', 'yes' );
+	
+	
+	delete_option('pageform1_wg_bg_img');
+	add_option( 'pageform1_wg_bg_img',plugins_url('/upload/026081-572-TA.jpg', __FILE__ ), '', 'yes' ); 
+	
+	delete_option('pageform2_wg_bg_img');
+	add_option( 'pageform2_wg_bg_img',plugins_url('/upload/026081-572-TA.jpg', __FILE__ ), '', 'yes' ); 
+	
+	delete_option('pageform3_wg_bg_img');
+	add_option( 'pageform3_wg_bg_img',plugins_url('/upload/026081-572-TA.jpg', __FILE__ ), '', 'yes' ); 
+	
+	
 }
 add_action('plugins_loaded','frameless_form_load_text_domain');
 add_action( 'init', 'frameless_front_js' );
@@ -689,7 +719,7 @@ function frameless_form_setting_urls() {
 	if(isset($_POST['save'])){	
 		$allowedExts = array("gif", "jpeg", "jpg", "png");		
 		
-		$filenamearr=array('pageform1_header_img_en','pageform1_header_img_ge','pageform1_header_img_fr','pageform1_header_img_du');
+		$filenamearr=array('pageform1_wg_bg_img','pageform1_header_img_en','pageform1_header_img_ge','pageform1_header_img_fr','pageform1_header_img_du');
 		foreach($filenamearr as $filename)
 		{
 			$temp = explode(".", $_FILES[$filename]["name"]);
@@ -714,6 +744,11 @@ function frameless_form_setting_urls() {
 			delete_option( 'pageform1_css');
 			add_option( 'pageform1_css',$_POST["pageform1_css"], '', 'yes' ); 
 		}
+		if(isset($_POST["pageform1_wg_bg_color"]))
+		{
+			delete_option( 'pageform1_wg_bg_color');
+			add_option( 'pageform1_wg_bg_color',$_POST["pageform1_wg_bg_color"], '', 'yes' ); 
+		}
 		$msg="Setting has been saved successfully.";
 	}
 	?>
@@ -733,7 +768,8 @@ function frameless_form_setting_urls() {
                 
                  <p>Upload header image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_header_img_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_header_img_du') , __FILE__ );?>" target="_blank">Preview</a></p>    
                     
-                 <p>Set Widget Background Color&nbsp;&nbsp;&nbsp;<input type="text" name="form2_wg_bg_color" value="<?php echo get_option('form2_wg_bg_color');?>"/></p>               
+                 <p>Set Widget Background Color&nbsp;&nbsp;&nbsp;<input type="text" name="pageform1_wg_bg_color" value="<?php echo get_option('pageform1_wg_bg_color');?>"/></p>
+                  <p>Set Widget Background Image&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_wg_bg_img" />&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_wg_bg_img') , __FILE__ );?>" target="_blank">Preview</a></p>                   
                  <p>Stylesheet&nbsp;&nbsp;(<strong>Shortcode:</strong>&nbsp;[travelwheels_form1 lang='en']&nbsp;[travelwheels_form1 lang='ge']&nbsp;[travelwheels_form1 lang='fr']&nbsp;[travelwheels_form1 lang='du'])</p>
                 <p><textarea name="pageform1_css" class="regular-text csstxt"><?php echo stripslashes(get_option('pageform1_css'));?></textarea></p>
                 <p class="submit">
@@ -750,7 +786,7 @@ function set_form_layout2() {
 	if(isset($_POST['save'])){		
 		$allowedExts = array("gif", "jpeg", "jpg", "png");		
 		
-		$filenamearr=array('pageform2_header_img_en','pageform2_header_img_ge','pageform2_header_img_fr','pageform2_header_img_du');
+		$filenamearr=array('pageform2_wg_bg_img','pageform2_header_img_en','pageform2_header_img_ge','pageform2_header_img_fr','pageform2_header_img_du');
 		foreach($filenamearr as $filename)
 		{
 			$temp = explode(".", $_FILES[$filename]["name"]);
@@ -774,6 +810,11 @@ function set_form_layout2() {
 			delete_option( 'pageform2_css');
 			add_option( 'pageform2_css',$_POST["pageform2_css"], '', 'yes' ); 
 		}
+		if(isset($_POST["pageform2_wg_bg_color"]))
+		{
+			delete_option( 'pageform2_wg_bg_color');
+			add_option( 'pageform2_wg_bg_color',$_POST["pageform2_wg_bg_color"], '', 'yes' ); 
+		}
 		$msg="Setting has been saved successfully.";
 	}
 	?>
@@ -792,7 +833,11 @@ function set_form_layout2() {
                 
                 <p>Upload header image for france&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_header_img_fr"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_header_img_fr') , __FILE__ );?>" target="_blank">Preview</a></p> 
                 
-                 <p>Upload header image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_header_img_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_header_img_du') , __FILE__ );?>" target="_blank">Preview</a></p>       
+                 <p>Upload header image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_header_img_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_header_img_du') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                 
+                   <p>Set Widget Background Color&nbsp;&nbsp;&nbsp;<input type="text" name="pageform2_wg_bg_color" value="<?php echo get_option('pageform2_wg_bg_color');?>"/></p>
+                  <p>Set Widget Background Image&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_wg_bg_img" />&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_wg_bg_img') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                         
                 <p>Stylesheet&nbsp;&nbsp;(<strong>Shortcode:</strong>&nbsp;[travelwheels_form2 lang='en']&nbsp;[travelwheels_form2 lang='ge']&nbsp;[travelwheels_form2 lang='fr']&nbsp;[travelwheels_form2 lang='du'])</p>
                 <p><textarea name="pageform2_css" class="regular-text csstxt"><?php echo stripslashes(get_option('pageform2_css'));?></textarea></p>
                 <p class="submit">
@@ -809,7 +854,7 @@ function set_form_layout3() {
 	if(isset($_POST['save'])){		
 		$allowedExts = array("gif", "jpeg", "jpg", "png");		
 		
-		$filenamearr=array('pageform3_header_img_en','pageform3_header_img_ge','pageform3_header_img_fr','pageform3_header_img_du');
+		$filenamearr=array('pageform3_wg_bg_img','pageform3_header_img_en','pageform3_header_img_ge','pageform3_header_img_fr','pageform3_header_img_du');
 		foreach($filenamearr as $filename)
 		{
 			$temp = explode(".", $_FILES[$filename]["name"]);
@@ -833,6 +878,11 @@ function set_form_layout3() {
 			delete_option( 'pageform3_css');
 			add_option( 'pageform3_css',$_POST["pageform3_css"], '', 'yes' ); 
 		}
+		if(isset($_POST["pageform3_wg_bg_color"]))
+		{
+			delete_option( 'pageform3_wg_bg_color');
+			add_option( 'pageform3_wg_bg_color',$_POST["pageform3_wg_bg_color"], '', 'yes' ); 
+		}
 		$msg="Setting has been saved successfully.";
 	}
 	?>
@@ -851,7 +901,11 @@ function set_form_layout3() {
                 
                 <p>Upload header image for france&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_header_img_fr"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_header_img_fr') , __FILE__ );?>" target="_blank">Preview</a></p> 
                 
-                 <p>Upload header image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_header_img_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_header_img_du') , __FILE__ );?>" target="_blank">Preview</a></p>       
+                 <p>Upload header image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_header_img_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_header_img_du') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                 
+                 <p>Set Widget Background Color&nbsp;&nbsp;&nbsp;<input type="text" name="pageform3_wg_bg_color" value="<?php echo get_option('pageform3_wg_bg_color');?>"/></p>
+                  <p>Set Widget Background Image&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_wg_bg_img" />&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_wg_bg_img') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                        
                  <p>Stylesheet&nbsp;&nbsp;(<strong>Shortcode:</strong>&nbsp;[travelwheels_form3 lang='en']&nbsp;[travelwheels_form3 lang='ge']&nbsp;[travelwheels_form3 lang='fr']&nbsp;[travelwheels_form3 lang='du'])</p>
                 <p><textarea name="pageform3_css" class="regular-text csstxt"><?php echo stripslashes(get_option('pageform3_css'));?></textarea></p>
                 <p class="submit">
@@ -1160,7 +1214,7 @@ function fnform1($attr)
 		}
 		</script>
 		<div id="frameless_form_section">
-            <div class="frameless_form_div" data-role="content">
+            <div class="frameless_form_div" data-role="content" style="background-image:url(\''.plugins_url('/upload/'.get_option( 'pageform1_wg_bg_img') , __FILE__ ).'\');background-color:'.get_option('pageform1_wg_bg_color').';border:2px solid '.get_option('pageform1_wg_bg_color').'">
                 <div class="form1">
 			<form target="_blank" id="theform" action="https://secure.rentalcarmanager.com.au/ssl/AUTravelWheels107/bondi/webstep2.asp?refid=&amp;URL=" name="theform" method="post">';
 			
@@ -1334,7 +1388,7 @@ function fnform2($attr)
 		</script>
 		<div id="frameless_form_section">
             <div class="clear5"></div>
-            <div class="frameless_form_div" data-role="content">
+             <div class="frameless_form_div" data-role="content" style="background-image:url(\''.plugins_url('/upload/'.get_option( 'pageform2_wg_bg_img') , __FILE__ ).'\');background-color:'.get_option('pageform2_wg_bg_color').';border:2px solid '.get_option('pageform2_wg_bg_color').'">
 		   <form target="_blank" id="theform" action="https://secure.rentalcarmanager.com.au/ssl/AUTravelWheels107/bondi/webstep2.asp?refid=&amp;URL=" name="theform" method="post">';
 		   if($lang_res['headerimgurl']!=""){
 			$str .= '<div align="left"><img src="'.$lang_res['headerimgurl'].'" border="0"/></div>';
@@ -1495,7 +1549,7 @@ function fnform3($attr)
 		</script>
 		<div id="frameless_form_section">
             <div class="clear5"></div>
-            <div class="frameless_form_div" data-role="content">
+             <div class="frameless_form_div" data-role="content" style="background-image:url(\''.plugins_url('/upload/'.get_option( 'pageform3_wg_bg_img') , __FILE__ ).'\');background-color:'.get_option('pageform3_wg_bg_color').';border:2px solid '.get_option('pageform3_wg_bg_color').'">
 			<form target="_blank" id="theform" action="https://secure.rentalcarmanager.com.au/ssl/AUTravelWheels107/bondi/webstep2.asp?refid=&amp;URL=" name="theform" method="post" onsubmit="updatefield();">';
 	
 	if($lang_res['headerimgurl']!=""){
