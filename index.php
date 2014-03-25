@@ -1115,8 +1115,9 @@ function fnform1($attr)
 	   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/i18n/jquery-ui-i18n.min.js"></script>	
 	  <script src="'.plugins_url("jquery.selectBoxIt.js", __FILE__).'"></script> 
 		<style>'.get_option('pageform1_css').'</style>
-		<script>			
-			function getsc()
+		<script>						
+             jQuery( document ).ready(function($) {	
+				function getsc()
 			{
 				var widths=$(window).width();			
 				var heights=$(window).height();
@@ -1132,8 +1133,7 @@ function fnform1($attr)
 					$("#ui-datepicker-div").css({margin:"40px 0 0 0"});
 					$(".ui-datepicker-group").width("100%");
 				}, 0);
-			}
-            $(function() {	
+			}											   
 				getsc();';
 			if($lang == 'en') { $str .= '$.datepicker.setDefaults( $.datepicker.regional[""] );';}
 			else if($lang == 'ge') { $str .= '$.datepicker.setDefaults( $.datepicker.regional[ "de" ] );';}
@@ -1141,11 +1141,10 @@ function fnform1($attr)
 			else if($lang == 'du') { $str .= '$.datepicker.setDefaults( $.datepicker.regional[ "nl" ] );';}
 			else { echo '$.datepicker.setDefaults( $.datepicker.regional[ "" ] );';}
 			
-			$str .= '$("#PickupLocationID,#DropoffLocationID").selectBoxIt({	
-				// Uses the jQueryUI theme for the drop down
+			$str .= '$("#PickupLocationID,#DropoffLocationID").selectBoxIt({
 				theme: "jquerymobile"		
 			});
-		$("#pagetxtStartDate_div").datepicker({ 
+			 $("#pagetxtStartDate_div").datepicker({ 
 				showOn: "button",
         		buttonImage: "'.plugins_url('cal.gif', __FILE__).'",
         		buttonImageOnly: true,									  
@@ -1198,6 +1197,7 @@ function fnform1($attr)
 				 }
 				 });
             });	
+			function myTrim(x){return x.replace(/^\s+|\s+$/gm,\'\');}			
 		 function updatefield()
 		{
 			var startdate=document.getElementById("pagetxtStartDate").value;
@@ -1210,9 +1210,17 @@ function fnform1($attr)
 			var droparr=enddate.split("/");
 			document.getElementById("DropoffDay").value=droparr[0];
 			document.getElementById("DropoffMonth").value=droparr[1];
-			document.getElementById("DropoffYear").value=droparr[2];            
-		}
-		</script>
+			document.getElementById("DropoffYear").value=droparr[2];   
+			if(myTrim(document.getElementById(\'pagetxtStartDate\').value) == "" || myTrim(document.getElementById(\'pagetxtEndDate\').value) == "" )
+				{
+					alert("please enter the start date & end date of your travel.");
+					return false;
+				}
+				else
+				{
+					document.getElementById(\'theform\').submit();
+				}
+		}</script>
 		<div id="frameless_form_section">
             <div class="frameless_form_div" data-role="content" style="background-image:url(\''.plugins_url('/upload/'.get_option( 'pageform1_wg_bg_img') , __FILE__ ).'\');background-color:'.get_option('pageform1_wg_bg_color').';border:2px solid '.get_option('pageform1_wg_bg_color').'">
                 <div class="form1">
@@ -1253,7 +1261,7 @@ function fnform1($attr)
 	   <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset ui-shadow ui-btn-up-c"><input type="text" id="pagetxtEndDate" data-role="date" value="'.date("d/m/Y",strtotime("+16 day")).'"/><input type="hidden" id="pagetxtEndDate_div"/></div>	
 	 <div class="clear5"></div>
 	  <input type="hidden" value="9" name="CategoryTypeID"/>
-	<img border="0" oldsrc="'.plugins_url( 'search.png' , __FILE__).'" srcover="'.plugins_url( 'search_ho.png' , __FILE__).'" src="'.plugins_url( 'search.png' , __FILE__).'" onclick="updatefield();document.getElementById(\'theform\').submit();"/>
+	<img border="0" oldsrc="'.plugins_url( 'search.png' , __FILE__).'" srcover="'.plugins_url( 'search_ho.png' , __FILE__).'" src="'.plugins_url( 'search.png' , __FILE__).'" onclick="return updatefield();"/>
 	 <input type="hidden" name="PickupDay" id="PickupDay"/><input type="hidden" name="PickupMonth" id="PickupMonth"/><input type="hidden" name="PickupYear" id="PickupYear"/>
 	 <input type="hidden" name="DropoffDay" id="DropoffDay"/><input type="hidden" name="DropoffMonth" id="DropoffMonth"/><input type="hidden" name="DropoffYear" id="DropoffYear"/>
 	 <div class="clear5"></div>
