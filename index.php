@@ -650,44 +650,62 @@ label{
 vertical-align:middle;
 }';
 	
-	delete_option( 'pageform1_css');
-	add_option( 'pageform1_css',$pagelayout1, '', 'yes' ); 
-	
-	delete_option( 'pageform2_css');
-	add_option( 'pageform2_css',$pagelayout2, '', 'yes' ); 
-	
-	delete_option( 'pageform3_css');
-	add_option( 'pageform3_css',$pagelayout3, '', 'yes' ); 
-	
-	delete_option('pageform1_wg_bg_color');
-	add_option( 'pageform1_wg_bg_color','#026CD6', '', 'yes' ); 
-	
-	delete_option('pageform2_wg_bg_color');
-	add_option( 'pageform2_wg_bg_color','#ea6420', '', 'yes' ); 
-	
-	delete_option('pageform3_wg_bg_color');
-	add_option( 'pageform3_wg_bg_color','#1966a5', '', 'yes' ); 
-	
-	delete_option('pageform1_header_img_en');
-	add_option('pageform1_header_img_en','headlogo.png', '', 'yes' );
-	
-	delete_option('pageform2_header_img_en');
-	add_option('pageform2_header_img_en','headlogo.png', '', 'yes' );
-	
-	delete_option('pageform3_header_img_en');
-	add_option('pageform3_wg_bg_img','headlogo.png', '', 'yes' );
-	
-	
-	delete_option('pageform1_wg_bg_img');
-	add_option( 'pageform1_wg_bg_img','026081-572-TA.jpg', '', 'yes' ); 
-	
-	delete_option('pageform2_wg_bg_img');
-	add_option( 'pageform2_wg_bg_img','026081-572-TA.jpg', '', 'yes' ); 
-	
-	delete_option('pageform3_wg_bg_img');
-	add_option( 'pageform3_wg_bg_img','026081-572-TA.jpg', '', 'yes' ); 
-	
-	
+	$optionarr=array('pageform1_css'=>$pagelayout1,
+					 'pageform2_css'=>$pagelayout2,
+					 'pageform3_css'=>$pagelayout3,
+					 'pageform1_wg_bg_color'=>'#026CD6',
+					 'pageform2_wg_bg_color'=>'#ea6420',
+					 'pageform3_wg_bg_color'=>'#1966a5',
+					 'pageform1_wg_bg_img'=>'widget-background.jpg','pageform2_wg_bg_img'=>'widget-background.jpg','pageform3_wg_bg_img'=>'widget-background.jpg',
+					 'pageform1_wg_bg_stat'=>'disabled','pageform2_wg_bg_stat'=>'disabled','pageform3_wg_bg_stat'=>'disabled',
+					 
+					 'pageform1_header_img_en'=>'headlogo.png','pageform2_header_img_en'=>'headlogo.png','pageform3_header_img_en'=>'headlogo.png',
+					 
+					 'pageform1_header_img_ge'=>'headlogo-ge.png','pageform2_header_img_ge'=>'headlogo-ge.png','pageform3_header_img_ge'=>'headlogo-ge.png',
+					 'pageform1_header_img_fr'=>'headlogo-fr.png','pageform2_header_img_fr'=>'headlogo-fr.png','pageform3_header_img_fr'=>'headlogo-fr.png',
+					 'pageform1_header_img_du'=>'headlogo-du.png','pageform2_header_img_du'=>'headlogo-du.png','pageform3_header_img_du'=>'headlogo-du.png',
+					 'pageform1_searchbtn_en'=>'search.png','pageform2_searchbtn_en'=>'search.png','pageform3_searchbtn_en'=>'search.png',
+					 
+					 'pageform1_searchbtn_ho_en'=>'search_ho.png','pageform2_searchbtn_ho_en'=>'search_ho.png','pageform3_searchbtn_ho_en'=>'search_ho.png',
+					 'pageform1_searchbtn_ge'=>'search_ge.png','pageform2_searchbtn_ge'=>'search_ge.png','pageform3_searchbtn_ge'=>'search_ge.png',
+					 
+					 'pageform1_searchbtn_ho_ge'=>'search_ge_ho.png','pageform2_searchbtn_ho_ge'=>'search_ge_ho.png','pageform3_searchbtn_ho_ge'=>'search_ge_ho.png',
+					 'pageform1_searchbtn_fr'=>'search_fr.png','pageform2_searchbtn_fr'=>'search_fr.png','pageform3_searchbtn_fr'=>'search_fr.png',
+					 
+					 'pageform1_searchbtn_ho_fr'=>'search_fr_ho.png','pageform2_searchbtn_ho_fr'=>'search_fr_ho.png','pageform3_searchbtn_ho_fr'=>'search_fr_ho.png',
+					 
+					'pageform1_searchbtn_du'=>'search_du.png','pageform2_searchbtn_du'=>'search_du.png','pageform3_searchbtn_du'=>'search_du.png',
+					
+					'pageform1_searchbtn_ho_du'=>'search_du_ho.png','pageform2_searchbtn_ho_du'=>'search_du_ho.png','pageform3_searchbtn_ho_du'=>'search_du_ho.png',
+					'pickuplocation_form_en'=>'Pickup Location',
+					'pickupdate_form_en'=>'Pickup Date',
+					'dropofflocation_form_en'=>'Dropoff Location',			
+					'dropoffdate_form_en'=>'Dropoff Date',
+					'samepickup_form_en'=>'Same Pickup',
+					
+					'pickuplocation_form_da'=>'Abholort',
+					'pickupdate_form_da'=>'Abholdatum',
+					'dropofflocation_form_da'=>'Rückgabestation',
+					'dropoffdate_form_da'=>'Dropoff Date',
+					'samepickup_form_da'=>'Same Pickup',
+
+					'pickuplocation_form_fr'=>'Lieu de départ',
+					'pickupdate_form_fr'=>'Date de départ',
+					'dropofflocation_form_fr'=>'Lieu de retour',
+					'dropoffdate_form_fr'=>'Date de retour',
+					'samepickup_form_fr'=>'Même lieu de départ et retour',
+
+					'pickuplocation_form_du'=>'Abholdatum',
+					'pickupdate_form_du'=>'Abholdatum',
+					'dropofflocation_form_du'=>'Rückgabestation',
+					'dropoffdate_form_du'=>'Dropoff Date',
+					'samepickup_form_du'=>'Same Pickup'
+);
+	foreach($optionarr as $ky => $value)
+	{
+		delete_option($ky);
+		add_option($ky,$value, '', 'yes' );
+	}
 }
 add_action('plugins_loaded','frameless_form_load_text_domain');
 add_action( 'init', 'frameless_front_js' );
@@ -719,7 +737,7 @@ function frameless_form_setting_urls() {
 	if(isset($_POST['save'])){	
 		$allowedExts = array("gif", "jpeg", "jpg", "png");		
 		
-		$filenamearr=array('pageform1_wg_bg_img','pageform1_header_img_en','pageform1_header_img_ge','pageform1_header_img_fr','pageform1_header_img_du');
+		$filenamearr=array('pageform1_wg_bg_img','pageform1_header_img_en','pageform1_header_img_ge','pageform1_header_img_fr','pageform1_header_img_du','pageform1_searchbtn_en','pageform1_searchbtn_ho_en','pageform1_searchbtn_ge','pageform1_searchbtn_ho_ge','pageform1_searchbtn_fr','pageform1_searchbtn_ho_fr','pageform1_searchbtn_du','pageform1_searchbtn_ho_du');
 		foreach($filenamearr as $filename)
 		{
 			$temp = explode(".", $_FILES[$filename]["name"]);
@@ -735,6 +753,10 @@ function frameless_form_setting_urls() {
 					 move_uploaded_file($_FILES[$filename]["tmp_name"],plugin_dir_path( __FILE__ )."/upload/" . $_FILES[$filename]["name"]);
 					 delete_option( $filename);
 					 add_option( $filename,$_FILES[$filename]["name"], '', 'yes' );
+					 
+					 delete_option('pageform1_wg_bg_stat');
+					 add_option('pageform1_wg_bg_stat',$_POST["pageform1_wg_bg_stat"], '', 'yes' );
+					
 				}
 			}
 		}		
@@ -760,16 +782,32 @@ function frameless_form_setting_urls() {
         <div class="pea_admin_main_wrap">
             <div class="pea_admin_main_left">
             <form method="post" action="" name="form1" enctype="multipart/form-data">
-            	<p>Upload header image for english&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_header_img_en"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_header_img_en') , __FILE__ );?>" target="_blank">Preview</a></p>    
+            	<h2>Header Logo</h2>
+                <p>Upload header image for english&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_header_img_en"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_header_img_en') , __FILE__ );?>" target="_blank">Preview</a></p>    
                 
                 <p>Upload header image for german&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_header_img_ge"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_header_img_ge') , __FILE__ );?>" target="_blank">Preview</a></p>    
                 
                 <p>Upload header image for france&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_header_img_fr"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_header_img_fr') , __FILE__ );?>" target="_blank">Preview</a></p> 
                 
                  <p>Upload header image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_header_img_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_header_img_du') , __FILE__ );?>" target="_blank">Preview</a></p>    
-                    
+                 
+                 <h2>Search Button</h2>
+                  <p>Search Button image for english&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_searchbtn_en"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_searchbtn_en') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                   <p>Hover Search Button image for english&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_searchbtn_ho_en"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_searchbtn_ho_en') , __FILE__ );?>" target="_blank">Preview</a></p>    
+                
+                <p>Search Button image for german&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_searchbtn_ge"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_searchbtn_ge') , __FILE__ );?>" target="_blank">Preview</a></p>                    
+                 <p>Hover Search Button image for german&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_searchbtn_ho_ge"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_searchbtn_ho_ge') , __FILE__ );?>" target="_blank">Preview</a></p>    
+                 
+                <p>Search Button image for france&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_searchbtn_fr"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_searchbtn_fr') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                 <p>Hover Search Button image for france&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_searchbtn_ho_fr"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_searchbtn_ho_fr') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                
+                 <p>Search Button image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_searchbtn_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_searchbtn_du') , __FILE__ );?>" target="_blank">Preview</a></p>
+                 <p>Hover Search Button image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_searchbtn_ho_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_searchbtn_ho_du') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                     
+                <h2>Other</h2>    
                  <p>Set Widget Background Color&nbsp;&nbsp;&nbsp;<input type="text" name="pageform1_wg_bg_color" value="<?php echo get_option('pageform1_wg_bg_color');?>"/></p>
-                  <p>Set Widget Background Image&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_wg_bg_img" />&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_wg_bg_img') , __FILE__ );?>" target="_blank">Preview</a></p>                   
+                  <p>Set Widget Background Image&nbsp;&nbsp;&nbsp;<input type="file" name="pageform1_wg_bg_img" />&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform1_wg_bg_img') , __FILE__ );?>" target="_blank">Preview</a></p>    
+                   <p>Widget Background Image&nbsp;&nbsp;&nbsp;<input type="radio" name="pageform1_wg_bg_stat" value="enabled" <?php if(get_option('pageform1_wg_bg_stat')=='enabled'){ echo 'checked';}?>/>&nbsp;&nbsp;Enabled&nbsp;&nbsp;<input type="radio" name="pageform1_wg_bg_stat" value="disabled" <?php if(get_option('pageform1_wg_bg_stat')=='disabled'){ echo 'checked';}?>/>&nbsp;&nbsp;Disabled</p>                 
                  <p>Stylesheet&nbsp;&nbsp;(<strong>Shortcode:</strong>&nbsp;[travelwheels_form1 lang='en']&nbsp;[travelwheels_form1 lang='ge']&nbsp;[travelwheels_form1 lang='fr']&nbsp;[travelwheels_form1 lang='du'])</p>
                 <p><textarea name="pageform1_css" class="regular-text csstxt"><?php echo stripslashes(get_option('pageform1_css'));?></textarea></p>
                 <p class="submit">
@@ -783,10 +821,10 @@ function frameless_form_setting_urls() {
 }
 function set_form_layout2() {
 	$msg='';
-	if(isset($_POST['save'])){		
+	if(isset($_POST['save'])){	
 		$allowedExts = array("gif", "jpeg", "jpg", "png");		
 		
-		$filenamearr=array('pageform2_wg_bg_img','pageform2_header_img_en','pageform2_header_img_ge','pageform2_header_img_fr','pageform2_header_img_du');
+		$filenamearr=array('pageform2_wg_bg_img','pageform2_header_img_en','pageform2_header_img_ge','pageform2_header_img_fr','pageform2_header_img_du','pageform2_searchbtn_en','pageform2_searchbtn_ho_en','pageform2_searchbtn_ge','pageform2_searchbtn_ho_ge','pageform2_searchbtn_fr','pageform2_searchbtn_ho_fr','pageform2_searchbtn_du','pageform2_searchbtn_ho_du');
 		foreach($filenamearr as $filename)
 		{
 			$temp = explode(".", $_FILES[$filename]["name"]);
@@ -802,9 +840,14 @@ function set_form_layout2() {
 					 move_uploaded_file($_FILES[$filename]["tmp_name"],plugin_dir_path( __FILE__ )."/upload/" . $_FILES[$filename]["name"]);
 					 delete_option( $filename);
 					 add_option( $filename,$_FILES[$filename]["name"], '', 'yes' );
+					 
+					 delete_option('pageform2_wg_bg_stat');
+					 add_option('pageform2_wg_bg_stat',$_POST["pageform2_wg_bg_stat"], '', 'yes' );
+					
 				}
 			}
 		}		
+		
 		if(isset($_POST['pageform2_css']))
 		{
 			delete_option( 'pageform2_css');
@@ -827,17 +870,32 @@ function set_form_layout2() {
         <div class="pea_admin_main_wrap">
             <div class="pea_admin_main_left">
              <form method="post" action="" name="form1" enctype="multipart/form-data">
-            	<p>Upload header image for english&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_header_img_en"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_header_img_en') , __FILE__ );?>" target="_blank">Preview</a></p>    
+            	<h2>Header Logo</h2>
+                <p>Upload header image for english&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_header_img_en"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_header_img_en') , __FILE__ );?>" target="_blank">Preview</a></p>    
                 
                 <p>Upload header image for german&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_header_img_ge"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_header_img_ge') , __FILE__ );?>" target="_blank">Preview</a></p>    
                 
                 <p>Upload header image for france&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_header_img_fr"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_header_img_fr') , __FILE__ );?>" target="_blank">Preview</a></p> 
                 
-                 <p>Upload header image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_header_img_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_header_img_du') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                 <p>Upload header image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_header_img_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_header_img_du') , __FILE__ );?>" target="_blank">Preview</a></p>    
                  
-                   <p>Set Widget Background Color&nbsp;&nbsp;&nbsp;<input type="text" name="pageform2_wg_bg_color" value="<?php echo get_option('pageform2_wg_bg_color');?>"/></p>
-                  <p>Set Widget Background Image&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_wg_bg_img" />&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_wg_bg_img') , __FILE__ );?>" target="_blank">Preview</a></p> 
-                         
+                 <h2>Search Button</h2>
+                  <p>Search Button image for english&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_searchbtn_en"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_searchbtn_en') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                   <p>Hover Search Button image for english&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_searchbtn_ho_en"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_searchbtn_ho_en') , __FILE__ );?>" target="_blank">Preview</a></p>    
+                
+                <p>Search Button image for german&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_searchbtn_ge"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_searchbtn_ge') , __FILE__ );?>" target="_blank">Preview</a></p>                    
+                 <p>Hover Search Button image for german&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_searchbtn_ho_ge"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_searchbtn_ho_ge') , __FILE__ );?>" target="_blank">Preview</a></p>    
+                 
+                <p>Search Button image for france&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_searchbtn_fr"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_searchbtn_fr') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                 <p>Hover Search Button image for france&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_searchbtn_ho_fr"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_searchbtn_ho_fr') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                
+                 <p>Search Button image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_searchbtn_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_searchbtn_du') , __FILE__ );?>" target="_blank">Preview</a></p>
+                 <p>Hover Search Button image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_searchbtn_ho_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_searchbtn_ho_du') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                     
+                <h2>Other</h2>    
+                 <p>Set Widget Background Color&nbsp;&nbsp;&nbsp;<input type="text" name="pageform2_wg_bg_color" value="<?php echo get_option('pageform2_wg_bg_color');?>"/></p>
+                  <p>Set Widget Background Image&nbsp;&nbsp;&nbsp;<input type="file" name="pageform2_wg_bg_img" />&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform2_wg_bg_img') , __FILE__ );?>" target="_blank">Preview</a></p>    
+                   <p>Widget Background Image&nbsp;&nbsp;&nbsp;<input type="radio" name="pageform2_wg_bg_stat" value="enabled" <?php if(get_option('pageform2_wg_bg_stat')=='enabled'){ echo 'checked';}?>/>&nbsp;&nbsp;Enabled&nbsp;&nbsp;<input type="radio" name="pageform2_wg_bg_stat" value="disabled" <?php if(get_option('pageform2_wg_bg_stat')=='disabled'){ echo 'checked';}?>/>&nbsp;&nbsp;Disabled</p>     
                 <p>Stylesheet&nbsp;&nbsp;(<strong>Shortcode:</strong>&nbsp;[travelwheels_form2 lang='en']&nbsp;[travelwheels_form2 lang='ge']&nbsp;[travelwheels_form2 lang='fr']&nbsp;[travelwheels_form2 lang='du'])</p>
                 <p><textarea name="pageform2_css" class="regular-text csstxt"><?php echo stripslashes(get_option('pageform2_css'));?></textarea></p>
                 <p class="submit">
@@ -851,10 +909,10 @@ function set_form_layout2() {
 }
 function set_form_layout3() {
 	$msg='';
-	if(isset($_POST['save'])){		
+	if(isset($_POST['save'])){	
 		$allowedExts = array("gif", "jpeg", "jpg", "png");		
 		
-		$filenamearr=array('pageform3_wg_bg_img','pageform3_header_img_en','pageform3_header_img_ge','pageform3_header_img_fr','pageform3_header_img_du');
+		$filenamearr=array('pageform3_wg_bg_img','pageform3_header_img_en','pageform3_header_img_ge','pageform3_header_img_fr','pageform3_header_img_du','pageform3_searchbtn_en','pageform3_searchbtn_ho_en','pageform3_searchbtn_ge','pageform3_searchbtn_ho_ge','pageform3_searchbtn_fr','pageform3_searchbtn_ho_fr','pageform3_searchbtn_du','pageform3_searchbtn_ho_du');
 		foreach($filenamearr as $filename)
 		{
 			$temp = explode(".", $_FILES[$filename]["name"]);
@@ -870,9 +928,14 @@ function set_form_layout3() {
 					 move_uploaded_file($_FILES[$filename]["tmp_name"],plugin_dir_path( __FILE__ )."/upload/" . $_FILES[$filename]["name"]);
 					 delete_option( $filename);
 					 add_option( $filename,$_FILES[$filename]["name"], '', 'yes' );
+					 
+					 delete_option('pageform3_wg_bg_stat');
+					 add_option('pageform3_wg_bg_stat',$_POST["pageform3_wg_bg_stat"], '', 'yes' );
+					
 				}
 			}
 		}		
+		
 		if(isset($_POST['pageform3_css']))
 		{
 			delete_option( 'pageform3_css');
@@ -895,16 +958,32 @@ function set_form_layout3() {
         <div class="pea_admin_main_wrap">
             <div class="pea_admin_main_left">
              <form method="post" action="" name="form3" enctype="multipart/form-data">
-            	<p>Upload header image for english&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_header_img_en"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_header_img_en') , __FILE__ );?>" target="_blank">Preview</a></p>    
+            	<h2>Header Logo</h2>
+                <p>Upload header image for english&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_header_img_en"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_header_img_en') , __FILE__ );?>" target="_blank">Preview</a></p>    
                 
                 <p>Upload header image for german&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_header_img_ge"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_header_img_ge') , __FILE__ );?>" target="_blank">Preview</a></p>    
                 
                 <p>Upload header image for france&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_header_img_fr"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_header_img_fr') , __FILE__ );?>" target="_blank">Preview</a></p> 
                 
-                 <p>Upload header image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_header_img_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_header_img_du') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                 <p>Upload header image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_header_img_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_header_img_du') , __FILE__ );?>" target="_blank">Preview</a></p>    
                  
+                 <h2>Search Button</h2>
+                  <p>Search Button image for english&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_searchbtn_en"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_searchbtn_en') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                   <p>Hover Search Button image for english&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_searchbtn_ho_en"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_searchbtn_ho_en') , __FILE__ );?>" target="_blank">Preview</a></p>    
+                
+                <p>Search Button image for german&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_searchbtn_ge"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_searchbtn_ge') , __FILE__ );?>" target="_blank">Preview</a></p>                    
+                 <p>Hover Search Button image for german&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_searchbtn_ho_ge"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_searchbtn_ho_ge') , __FILE__ );?>" target="_blank">Preview</a></p>    
+                 
+                <p>Search Button image for france&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_searchbtn_fr"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_searchbtn_fr') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                 <p>Hover Search Button image for france&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_searchbtn_ho_fr"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_searchbtn_ho_fr') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                
+                 <p>Search Button image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_searchbtn_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_searchbtn_du') , __FILE__ );?>" target="_blank">Preview</a></p>
+                 <p>Hover Search Button image for netherland&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_searchbtn_ho_du"/>&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_searchbtn_ho_du') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                     
+                <h2>Other</h2>    
                  <p>Set Widget Background Color&nbsp;&nbsp;&nbsp;<input type="text" name="pageform3_wg_bg_color" value="<?php echo get_option('pageform3_wg_bg_color');?>"/></p>
-                  <p>Set Widget Background Image&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_wg_bg_img" />&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_wg_bg_img') , __FILE__ );?>" target="_blank">Preview</a></p> 
+                  <p>Set Widget Background Image&nbsp;&nbsp;&nbsp;<input type="file" name="pageform3_wg_bg_img" />&nbsp;<a href="<?php echo plugins_url('/upload/'.get_option( 'pageform3_wg_bg_img') , __FILE__ );?>" target="_blank">Preview</a></p>    
+                   <p>Widget Background Image&nbsp;&nbsp;&nbsp;<input type="radio" name="pageform3_wg_bg_stat" value="enabled" <?php if(get_option('pageform3_wg_bg_stat')=='enabled'){ echo 'checked';}?>/>&nbsp;&nbsp;Enabled&nbsp;&nbsp;<input type="radio" name="pageform3_wg_bg_stat" value="disabled" <?php if(get_option('pageform3_wg_bg_stat')=='disabled'){ echo 'checked';}?>/>&nbsp;&nbsp;Disabled</p> 
                         
                  <p>Stylesheet&nbsp;&nbsp;(<strong>Shortcode:</strong>&nbsp;[travelwheels_form3 lang='en']&nbsp;[travelwheels_form3 lang='ge']&nbsp;[travelwheels_form3 lang='fr']&nbsp;[travelwheels_form3 lang='du'])</p>
                 <p><textarea name="pageform3_css" class="regular-text csstxt"><?php echo stripslashes(get_option('pageform3_css'));?></textarea></p>
@@ -923,7 +1002,7 @@ function set_form_lang()
 	$msg='';
 	if(isset($_POST['save'])){			
 		
-		$postarr=array('pickuplocation_form_en','pickupdate_form_en','dropofflocation_form_en','dropoffdate_form_en','pickuplocation_form_da','pickupdate_form_da','dropofflocation_form_da','dropoffdate_form_da','pickuplocation_form_fr','pickupdate_form_fr','dropofflocation_form_fr','dropoffdate_form_fr','pickuplocation_form_du','pickupdate_form_du','dropofflocation_form_du','dropoffdate_form_du');
+		$postarr=array('pickuplocation_form_en','pickupdate_form_en','dropofflocation_form_en','dropoffdate_form_en','pickuplocation_form_da','pickupdate_form_da','dropofflocation_form_da','dropoffdate_form_da','pickuplocation_form_fr','pickupdate_form_fr','dropofflocation_form_fr','dropoffdate_form_fr','pickuplocation_form_du','pickupdate_form_du','dropofflocation_form_du','dropoffdate_form_du','samepickup_form_en','samepickup_form_fr','samepickup_form_da','samepickup_form_du');
 		foreach($postarr as $value)
 		{
 			if($_POST[$value]!="")
@@ -969,6 +1048,10 @@ function set_form_lang()
     <td>Dropoff Date</td>
     <td><input type="text"  name="dropoffdate_form_en" value="<?php echo get_option("dropoffdate_form_en");?>" class="regular-text"/></td>
   </tr>
+  <tr>
+    <td>Same Pickup</td>
+    <td><input type="text"  name="samepickup_form_en" value="<?php echo get_option("samepickup_form_en");?>" class="regular-text"/></td>
+  </tr>
 </table></td>
                 <td align="right"><table width="100%" border="0" cellspacing="3" cellpadding="3">
   <tr>
@@ -991,6 +1074,10 @@ function set_form_lang()
   <tr>
     <td>Dropoff Date</td>
     <td><input type="text"  name="dropoffdate_form_da" value="<?php echo get_option("dropoffdate_form_da");?>" class="regular-text"/></td>
+  </tr>
+  <tr>
+    <td>Same Pickup</td>
+    <td><input type="text"  name="samepickup_form_da" value="<?php echo get_option("samepickup_form_da");?>" class="regular-text"/></td>
   </tr>
 </table></td>
              </tr>
@@ -1017,6 +1104,10 @@ function set_form_lang()
     <td>Dropoff Date</td>
     <td><input type="text"  name="dropoffdate_form_fr" value="<?php echo get_option("dropoffdate_form_fr");?>" class="regular-text"/></td>
   </tr>
+  <tr>
+    <td>Same Pickup</td>
+    <td><input type="text"  name="samepickup_form_fr" value="<?php echo get_option("samepickup_form_fr");?>" class="regular-text"/></td>
+  </tr>
 </table></td>
                 <td align="right"><table width="100%" border="0" cellspacing="3" cellpadding="3">
                   <tr>
@@ -1040,6 +1131,10 @@ function set_form_lang()
                     <td>Dropoff Date</td>
                     <td><input type="text"  name="dropoffdate_form_du" value="<?php echo get_option("dropoffdate_form_du");?>" class="regular-text"/></td>
                   </tr>
+                  <tr>
+    <td>Same Pickup</td>
+    <td><input type="text"  name="samepickup_form_du" value="<?php echo get_option("samepickup_form_du");?>" class="regular-text"/></td>
+  </tr>
                 </table></td>
             </tr>
                 </table>
@@ -1066,7 +1161,10 @@ function getlangconstants($setlang,$text)
 		$outputarr['pickupdate_lvl']=get_option("pickupdate_form_en");
 		$outputarr['dropofflocation_lvl']=get_option("dropofflocation_form_en");
 		$outputarr['dropoffdate_lvl']=get_option("dropoffdate_form_en");
+		$outputarr['samepickup_lvl']=get_option("samepickup_form_en");
 		$outputarr['headerimgurl']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_header_img_en'), __FILE__);
+		$outputarr['searchbtn']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_searchbtn_en'), __FILE__);
+		$outputarr['searchbtn_ho']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_searchbtn_ho_en'), __FILE__);
 	}
 	elseif($setlang == 'ge')
 	{
@@ -1074,7 +1172,10 @@ function getlangconstants($setlang,$text)
 		$outputarr['pickupdate_lvl']=get_option("pickupdate_form_da");
 		$outputarr['dropofflocation_lvl']=get_option("dropofflocation_form_da");
 		$outputarr['dropoffdate_lvl']=get_option("dropoffdate_form_da");
+		$outputarr['samepickup_lvl']=get_option("samepickup_form_ge");
 		$outputarr['headerimgurl']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_header_img_ge'), __FILE__);
+		$outputarr['searchbtn']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_searchbtn_ge'), __FILE__);
+		$outputarr['searchbtn_ho']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_searchbtn_ho_ge'), __FILE__);
 	}
 	elseif($setlang == 'fr')
 	{
@@ -1082,7 +1183,10 @@ function getlangconstants($setlang,$text)
 		$outputarr['pickupdate_lvl']=get_option("pickupdate_form_fr");
 		$outputarr['dropofflocation_lvl']=get_option("dropofflocation_form_fr");
 		$outputarr['dropoffdate_lvl']=get_option("dropoffdate_form_fr");
+		$outputarr['samepickup_lvl']=get_option("samepickup_form_fr");
 		$outputarr['headerimgurl']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_header_img_fr'), __FILE__);
+		$outputarr['searchbtn']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_searchbtn_fr'), __FILE__);
+		$outputarr['searchbtn_ho']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_searchbtn_ho_fr'), __FILE__);
 	}
 	elseif($setlang == 'du')
 	{
@@ -1090,7 +1194,10 @@ function getlangconstants($setlang,$text)
 		$outputarr['pickupdate_lvl']=get_option("pickupdate_form_du");
 		$outputarr['dropofflocation_lvl']=get_option("dropofflocation_form_du");
 		$outputarr['dropoffdate_lvl']=get_option("dropoffdate_form_du");
+		$outputarr['samepickup_lvl']=get_option("samepickup_form_du");
 		$outputarr['headerimgurl']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_header_img_du'), __FILE__);
+		$outputarr['searchbtn']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_searchbtn_du'), __FILE__);
+		$outputarr['searchbtn_ho']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_searchbtn_ho_du'), __FILE__);
 	}
 	else
 	{
@@ -1098,7 +1205,10 @@ function getlangconstants($setlang,$text)
 		$outputarr['pickupdate_lvl']=get_option("pickupdate_form_en");
 		$outputarr['dropofflocation_lvl']=get_option("dropofflocation_form_en");
 		$outputarr['dropoffdate_lvl']=get_option("dropoffdate_form_en");
+		$outputarr['samepickup_lvl']=get_option("samepickup_form_en");
 		$outputarr['headerimgurl']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_header_img_en'), __FILE__);
+		$outputarr['searchbtn']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_searchbtn_en'), __FILE__);
+		$outputarr['searchbtn_ho']=plugins_url('/upload/'.get_option( 'pageform'.$text.'_searchbtn_ho_en'), __FILE__);
 	}
 	return $outputarr;
 }
@@ -1115,9 +1225,9 @@ function fnform1($attr)
 	   <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/i18n/jquery-ui-i18n.min.js"></script>	
 	  <script src="'.plugins_url("jquery.selectBoxIt.js", __FILE__).'"></script> 
 		<style>'.get_option('pageform1_css').'</style>
-		<script>						
-             jQuery( document ).ready(function($) {	
-				function getsc()
+		<script>
+           jQuery( document ).ready(function($) {
+			function getsc()
 			{
 				var widths=$(window).width();			
 				var heights=$(window).height();
@@ -1133,7 +1243,7 @@ function fnform1($attr)
 					$("#ui-datepicker-div").css({margin:"40px 0 0 0"});
 					$(".ui-datepicker-group").width("100%");
 				}, 0);
-			}											   
+			}											 
 				getsc();';
 			if($lang == 'en') { $str .= '$.datepicker.setDefaults( $.datepicker.regional[""] );';}
 			else if($lang == 'ge') { $str .= '$.datepicker.setDefaults( $.datepicker.regional[ "de" ] );';}
@@ -1160,9 +1270,9 @@ function fnform1($attr)
 					var widths=$(window).width();			
 					var heights=$(window).height();
 					if(widths <= 768){					
-						$.datepicker._pos = $.datepicker._findPos(input); //this is the default position
-						$.datepicker._pos[0] = $.datepicker._pos[0]-260; //left
-						$.datepicker._pos[1] = "50"; //top
+						$.datepicker._pos = $.datepicker._findPos(input);
+						$.datepicker._pos[0] = $.datepicker._pos[0]-260; 
+						$.datepicker._pos[1] = "50"; 
 						resizeDatepicker();
 					}
 				},
@@ -1186,9 +1296,9 @@ function fnform1($attr)
 					var widths=$(window).width();			
 					var heights=$(window).height();
 					if(widths <= 768){					
-						$.datepicker._pos = $.datepicker._findPos(input); //this is the default position
-						$.datepicker._pos[0] = $.datepicker._pos[0]-260; //left
-						$.datepicker._pos[1] = "50"; //top
+						$.datepicker._pos = $.datepicker._findPos(input); 
+						$.datepicker._pos[0] = $.datepicker._pos[0]-260; 
+						$.datepicker._pos[1] = "50";
 						resizeDatepicker();
 					}
 				},
@@ -1197,7 +1307,6 @@ function fnform1($attr)
 				 }
 				 });
             });	
-			function myTrim(x){return x.replace(/^\s+|\s+$/gm,\'\');}			
 		 function updatefield()
 		{
 			var startdate=document.getElementById("pagetxtStartDate").value;
@@ -1210,7 +1319,8 @@ function fnform1($attr)
 			var droparr=enddate.split("/");
 			document.getElementById("DropoffDay").value=droparr[0];
 			document.getElementById("DropoffMonth").value=droparr[1];
-			document.getElementById("DropoffYear").value=droparr[2];   
+			document.getElementById("DropoffYear").value=droparr[2];            
+			
 			if(myTrim(document.getElementById(\'pagetxtStartDate\').value) == "" || myTrim(document.getElementById(\'pagetxtEndDate\').value) == "" )
 				{
 					alert("please enter the start date & end date of your travel.");
@@ -1220,14 +1330,22 @@ function fnform1($attr)
 				{
 					document.getElementById(\'theform\').submit();
 				}
-		}</script>
-		<div id="frameless_form_section">
-            <div class="frameless_form_div" data-role="content" style="background-image:url(\''.plugins_url('/upload/'.get_option( 'pageform1_wg_bg_img') , __FILE__ ).'\');background-color:'.get_option('pageform1_wg_bg_color').';border:2px solid '.get_option('pageform1_wg_bg_color').'">
+		}
+		function myTrim(x){return x.replace(/^\s+|\s+$/gm,\'\');}
+			
+		</script>
+		<div id="frameless_form_section">';
+		if(get_option( 'pageform1_wg_bg_stat') == 'enabled')
+		{
+			$backstyle='background-image:url('.plugins_url('/upload/'.get_option( 'pageform1_wg_bg_img') , __FILE__ ).');';
+		}
+		$str .='
+            <div class="frameless_form_div" data-role="content" style="'.$backstyle.'background-color:'.get_option('pageform1_wg_bg_color').';border:2px solid '.get_option('pageform1_wg_bg_color').'">
                 <div class="form1">
 			<form target="_blank" id="theform" action="https://secure.rentalcarmanager.com.au/ssl/AUTravelWheels107/bondi/webstep2.asp?refid=&amp;URL=" name="theform" method="post">';
 			
 			if($lang_res['headerimgurl']!=""){
-			$str .= '<div align="left"><img src="'.$lang_res['headerimgurl'].'" border="0"/></div>';
+			$str .= '<div align="center"><img src="'.$lang_res['headerimgurl'].'" border="0"/></div>';
 			} else {
 			$str .= '<h1>Enter Your Travel Details</h1>'; } 
 			$str .= '            
@@ -1247,7 +1365,7 @@ function fnform1($attr)
 	<div class="clear5"></div>                  
 		<label>'.$lang_res["dropofflocation_lvl"].'</label>
 		<select name="DropoffLocationID" id="DropoffLocationID">               
-		   <option value="Same" selected="selected">Same As Pickup</option>
+		   <option value="Same" selected="selected">'.$lang_res['samepickup_lvl'].'</option>
 		   <option value="28">Adelaide &nbsp;</option>
 		   <option value="33">Brisbane &nbsp;</option>
 		   <option value="36">Cairns &nbsp;</option>
@@ -1261,7 +1379,7 @@ function fnform1($attr)
 	   <div class="ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset ui-shadow ui-btn-up-c"><input type="text" id="pagetxtEndDate" data-role="date" value="'.date("d/m/Y",strtotime("+16 day")).'"/><input type="hidden" id="pagetxtEndDate_div"/></div>	
 	 <div class="clear5"></div>
 	  <input type="hidden" value="9" name="CategoryTypeID"/>
-	<img border="0" oldsrc="'.plugins_url( 'search.png' , __FILE__).'" srcover="'.plugins_url( 'search_ho.png' , __FILE__).'" src="'.plugins_url( 'search.png' , __FILE__).'" onclick="return updatefield();"/>
+	<img border="0" oldsrc="'.$lang_res['searchbtn'].'" srcover="'.$lang_res['searchbtn_ho'].'" src="'.$lang_res['searchbtn'].'" onclick="return updatefield();"/>
 	 <input type="hidden" name="PickupDay" id="PickupDay"/><input type="hidden" name="PickupMonth" id="PickupMonth"/><input type="hidden" name="PickupYear" id="PickupYear"/>
 	 <input type="hidden" name="DropoffDay" id="DropoffDay"/><input type="hidden" name="DropoffMonth" id="DropoffMonth"/><input type="hidden" name="DropoffYear" id="DropoffYear"/>
 	 <div class="clear5"></div>
@@ -1422,7 +1540,7 @@ text-shadow: 0 1px 0 #F3F3F3;width:45%;display:block;float:right;margin:0;"><inp
 	<label><strong>STEP3:RETURNING</strong> </label>
 	<div class="clear5"></div>
 		<select name="DropoffLocationID" id="pageDropoffLocationID" data-mini="true" class="sel"> 
-		   <option value="Same" selected="selected">Same As Pickup</option>
+		   <option value="Same" selected="selected">'.$lang_res['samepickup_lvl'].'</option>
 		   <option value="28">Adelaide &nbsp;</option>
 		   <option value="33">Brisbane &nbsp;</option>
 		   <option value="36">Cairns &nbsp;</option>
